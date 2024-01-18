@@ -4,7 +4,7 @@ Welcome to the Dynamic Todo List application – a sleek, interactive tool desig
 
 ## 🌟 Features
 
-```markdown
+
 1. **Add Tasks**: Enter your new tasks in the provided textarea and press "Enter" to magically add them to the Todo List.
 
 2. **Check/Uncheck Tasks**: Effortlessly mark tasks as completed or pending by clicking on the checkbox next to each task.
@@ -16,12 +16,12 @@ Welcome to the Dynamic Todo List application – a sleek, interactive tool desig
 # 🚀 Getting Started
 Getting started is a breeze! Just open the `index.html` file in your favorite web browser. The application is designed to adapt to various devices, ensuring a seamless experience.
 
-```bash
+
 open index.html
 
 ## 💡 Usage
 
-```markdown
+
 1. **Add a Task**:
    - Type in your new task in the textarea.
    - Hit "Enter" to witness the magic as the task gets added to your Todo List.
@@ -39,12 +39,11 @@ open index.html
 # 🎨 Customization
 Express yourself! The application uses the elegant Poppins font from Google Fonts and the stylish Unicons icon set for that extra flair. Customize the styles to match your vibe by modifying the `style.css` file.
 
-```css
+
 /* Express your style here */
 
 ## 🤝 Contributing
 
-```markdown
 Excited to contribute to the development of this Todo List application? Fantastic! Please follow the guidelines outlined in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 # 📄 License
