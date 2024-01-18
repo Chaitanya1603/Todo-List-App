@@ -1,14 +1,14 @@
-//Getting all required elements
+// Getting all required elements
 const inputField = document.querySelector(".input-field textarea"),
   todoLists = document.querySelector(".todoLists"),
   pendingNum = document.querySelector(".pending-num"),
   clearButton = document.querySelector(".clear-button");
 
-//we will call this function while adding, deleting and checking-unchecking the task
+// We will call this function while adding, deleting, and checking-unchecking the task
 function allTasks() {
   let tasks = document.querySelectorAll(".pending");
 
-  //if tasks' length is 0 then pending num text content will be no, if not then pending num value will be task's length
+  // If tasks' length is 0, then pending num text content will be "no"; if not, then pending num value will be task's length
   pendingNum.textContent = tasks.length === 0 ? "no" : tasks.length;
 
   let allLists = document.querySelectorAll(".list");
@@ -21,40 +21,68 @@ function allTasks() {
   clearButton.style.pointerEvents = "none";
 }
 
-//add task while we put value in text area and press enter
-inputField.addEventListener("keyup", (e) => {
-  let inputVal = inputField.value.trim(); //trim fuction removes space of front and back of the inputed value
+// Load tasks from local storage on page load
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  todoLists.innerHTML = savedTasks.join("");
+  allTasks();
+});
 
-  //if enter button is clicked and inputed value length is greated than 0.
+// Save tasks to local storage
+function saveTasksToLocalStorage() {
+  const tasks = Array.from(todoLists.children).map((li) => li.outerHTML);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// Add task while we put value in the textarea and press Enter
+inputField.addEventListener("keyup", (e) => {
+  let inputVal = inputField.value.trim();
+
   if (e.key === "Enter" && inputVal.length > 0) {
-    let liTag = ` <li class="list pending" onclick="handleStatus(this)">
+    let liTag = `<li class="list pending" onclick="handleStatus(this)">
           <input type="checkbox" />
           <span class="task">${inputVal}</span>
           <i class="uil uil-trash" onclick="deleteTask(this)"></i>
         </li>`;
 
-    todoLists.insertAdjacentHTML("beforeend", liTag); //inserting li tag inside the todolist div
-    inputField.value = ""; //removing value from input field
+    todoLists.insertAdjacentHTML("beforeend", liTag);
+    inputField.value = "";
+    saveTasksToLocalStorage();
     allTasks();
   }
 });
 
-//checking and unchecking the chekbox while we click on the task
+// Checking and unchecking the checkbox while we click on the task
 function handleStatus(e) {
-  const checkbox = e.querySelector("input"); //getting checkbox
+  const checkbox = e.querySelector("input");
   checkbox.checked = checkbox.checked ? false : true;
   e.classList.toggle("pending");
+  saveTasksToLocalStorage();
   allTasks();
 }
 
-//deleting task while we click on the delete icon.
+// Deleting task while we click on the delete icon
 function deleteTask(e) {
-  e.parentElement.remove(); //getting parent element and remove it
+  e.parentElement.remove();
+  saveTasksToLocalStorage();
   allTasks();
 }
 
-//deleting all the tasks while we click on the clear button.
+// Editing task when user clicks on the task content
+todoLists.addEventListener("click", (e) => {
+  const taskSpan = e.target.closest(".task");
+  if (taskSpan) {
+    const newText = prompt("Edit task:", taskSpan.textContent);
+    if (newText !== null) {
+      taskSpan.textContent = newText;
+      saveTasksToLocalStorage();
+    }
+  }
+});
+
+// Deleting all the tasks while we click on the clear button
 clearButton.addEventListener("click", () => {
   todoLists.innerHTML = "";
+  saveTasksToLocalStorage();
   allTasks();
 });
