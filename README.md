@@ -40,11 +40,6 @@ open index.html
 Express yourself! The application uses the elegant Poppins font from Google Fonts and the stylish Unicons icon set for that extra flair. Customize the styles to match your vibe by modifying the `style.css` file.
 
 
-/* Express your style here */
-
-## 🤝 Contributing
-
-Excited to contribute to the development of this Todo List application? Fantastic! Please follow the guidelines outlined in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 # 📄 License
 This Todo List application is licensed under the MIT License, granting you the freedom for both personal and commercial use. Refer to the license file for all the details.
