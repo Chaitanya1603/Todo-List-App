@@ -39,6 +39,8 @@ open index.html
 # 🎨 Customization
 Express yourself! The application uses the elegant Poppins font from Google Fonts and the stylish Unicons icon set for that extra flair. Customize the styles to match your vibe by modifying the `style.css` file.
 
+![image](https://github.com/Chaitanya1603/Todo-List-App/assets/95305500/641ec60a-9b0d-48b2-b8bf-2d17e2538fd0)
+
 
 
 # 📄 License
@@ -47,4 +49,4 @@ This Todo List application is licensed under the MIT License, granting you the f
 Feel the productivity, stay organized, and enjoy your task management journey! 🌈✨
 
 
-Now, all the text is within a single Markdown code block for easy copying and pasting. Adjust it further according to your preferences!
+
